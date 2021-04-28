@@ -1,50 +1,45 @@
 /// @description Вставьте описание здесь
 // Вы можете записать свой код в этом редакторе
 
+
+
+
+// Debug mode
+if (debug)
+{
+	draw_set_color(c_aqua)
+	draw_circle(x,y,size+2,0)
+	draw_text(x,y+15,"Dir: " + string(direction))
+	draw_text(x,y+30,"Nt: " + string(nt))
+	draw_text(x,y+45,"Rt: " + string(rt))
+	draw_text(x,y+60,"Lt: " + string(lt))
+	draw_text(x,y+75,"sig: " + string(sign(rt-lt)))
+	draw_circle(x,y,rad,1)
+	
+	var ii = ds_list_size(nlist)
+	
+	for (i=0;i<ii;i++)
+    {
+    var qq= ds_list_find_value(nlist,i)  
+    draw_line(x,y,qq.x,qq.y)    
+    }
+}
+
+// Color of circle
+switch (nt)
+	{
+	case 0: {col = c_green break;}
+	case 1: {col = c_yellow break;}
+	case 2: {col = c_orange break;}
+	default: {col = c_red}
+	}
+
+
+// Drawing self
 draw_set_color(col)
 draw_circle(x,y,size,0)
+
 draw_set_color(c_white)
-draw_line(x,y,x+size*2*cos(degtorad(direction)),y-size*2*sin(degtorad(direction)))
-draw_text(x,y+15,string(direction))
+draw_line(x,y,x+(size+1)*cos(degtorad(direction)),y-(size+1)*sin(degtorad(direction)))
 
 
-
-
-
-
-
-
-
-//draw_circle(x,y,rad,1)
-//draw_text (x+5,y, string(nt))
-if (selected)
-if nt {
-	var rt = 0
-	var lt = 0
-	for (i=0;i<nt;i++)
-	{
-		var qq= ds_list_find_value(nlist,i)	
-		if distance_to_object(qq)<rad
-			{
-				
-				draw_set_color(c_white)
-				draw_line(x,y,qq.x,qq.y)
-				var rot = point_direction(x,y,qq.x,qq.y)
-				var rot2 = direction - rot 
-				if rot2>180 {rot2 -= 360}
-				if rot2<-180 {rot2 +=360}
-				if rot2 >0 {draw_set_color(c_blue) lt++}
-				if rot2 <0 {draw_set_color(c_red) rt++}
-				//draw_set_color(c_green)
-				draw_text(x,y+30+15*i,string(rot2))
-				
-				draw_line(x,y,qq.x,qq.y)
-				
-			}
-		
-	}
-	draw_set_color(c_white)
-	draw_text(x,y-30,"L: " + string(lt))
-	draw_text(x,y-15,"R: " + string(rt))
-	ds_list_clear(nlist)
-}
