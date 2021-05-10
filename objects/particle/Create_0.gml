@@ -4,7 +4,7 @@
 // Debug mode
 debug = false
 phi = 17
-room_bounce = 0
+room_bounce = 1
 
 
 // Experiment parameters

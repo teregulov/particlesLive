@@ -33,3 +33,5 @@ phi = alpha + betta * nt * sign (rt-lt)
 
 direction -= phi
 ds_list_clear(nlist)
+
+if mouse_check_button(mb_right) {debug = 0}

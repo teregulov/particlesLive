@@ -40,6 +40,6 @@ draw_set_color(col)
 draw_circle(x,y,size,0)
 
 draw_set_color(c_white)
-draw_line(x,y,x+(size+1)*cos(degtorad(direction)),y-(size+1)*sin(degtorad(direction)))
+//draw_line(x,y,x+(size+1)*cos(degtorad(direction)),y-(size+1)*sin(degtorad(direction)))
 
 

@@ -1,7 +1,10 @@
 randomize()
-repeat (400)
+
+room_speed = 300
+border = 150
+repeat (1000)
 {
-k = instance_create_depth(50+random(room_width-100),50+random(room_height-100),0,particle)
+k = instance_create_depth(border+random(room_width-border*2),border+random(room_height-border*2),0,particle)
 with (k)
 {
 	direction = random(360)
